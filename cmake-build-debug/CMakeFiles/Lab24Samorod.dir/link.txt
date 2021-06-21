@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Lab24Samorod.dir/main.cpp.o CMakeFiles/Lab24Samorod.dir/1d/part1d.cpp.o CMakeFiles/Lab24Samorod.dir/2d/part2d.cpp.o  -o Lab24Samorod 

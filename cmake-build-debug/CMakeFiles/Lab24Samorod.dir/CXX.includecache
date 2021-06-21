@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/sveta/Desktop/Lab24Samorod/1d/part1d.cpp
+part1d.h
+/Users/sveta/Desktop/Lab24Samorod/1d/part1d.h
+
+/Users/sveta/Desktop/Lab24Samorod/1d/part1d.h
+iostream
+-
+
+/Users/sveta/Desktop/Lab24Samorod/2d/part2d.cpp
+part2d.h
+/Users/sveta/Desktop/Lab24Samorod/2d/part2d.h
+
+/Users/sveta/Desktop/Lab24Samorod/2d/part2d.h
+iostream
+-
+
