@@ -40,5 +40,4 @@ int main() {
         } else
             std::cout << "Invalid!\n";
     }
-    return 0;
 }

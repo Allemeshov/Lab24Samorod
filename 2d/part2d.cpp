@@ -69,8 +69,10 @@ void findSimilar(std::string **matrix, std::string elem, int i, int y, int *x, i
             }
         }
     }
-    if (hasFoundAny)
+    if (hasFoundAny) {
         matrix[i][j] = "[_]";
+        ++deleter;
+    }
 
     *x -= deleter;
 }
