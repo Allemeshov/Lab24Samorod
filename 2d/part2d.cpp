@@ -1,8 +1,8 @@
 #include "part2d.h"
 
-Sizes2d shrinkMatrix(std::string **matrix, int size);
+Sizes2d shrinkMatrix(int **matrix, int size);
 
-void findSimilar(std::string **matrix, std::string elem, int i, int y, int *x, int j);
+void findSimilar(int **matrix, int elem, int i, int y, int *x, int j);
 
 
 void task1_2d() {
@@ -16,9 +16,9 @@ void task2_2d() {
         std::cin >> size;
     } while (size <= 0);
 
-    auto **matrix = (std::string **) malloc(size * sizeof(std::string *));
+    auto **matrix = (int **) malloc(size * sizeof(int *));
     for (int i = 0; i < size; ++i) {
-        matrix[i] = (std::string *) malloc(size * sizeof(std::string));
+        matrix[i] = (int *) malloc(size * sizeof(int));
         for (int j = 0; j < size; ++j) {
             std::cout << "Enter element[" << i << "][" << j << "]: ";
             std::cin >> matrix[i][j];
@@ -30,7 +30,10 @@ void task2_2d() {
     for (int i = 0; i < newSizes.height; ++i) {
         for (int j = 0; j < newSizes.width; ++j) {
             std::cout << "\t[" << i << "][" << j << "]: ";
-            std::cout << matrix[i][j];
+            if (matrix[i][j] == 228)
+                std::cout << "[_]";
+            else
+                std::cout << matrix[i][j];
         }
         std::cout << std::endl;
     }
@@ -41,12 +44,12 @@ void task2_2d() {
     free(matrix);
 }
 
-Sizes2d shrinkMatrix(std::string **matrix, int size) {
+Sizes2d shrinkMatrix(int **matrix, int size) {
     int height, width;
     height = width = size;
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < size; ++j) {
-            if (matrix[i][j] != "[_]") {
+            if (matrix[i][j] != 228) {
                 findSimilar(matrix, matrix[i][j], i, height, &width, j);
             }
         }
@@ -57,20 +60,20 @@ Sizes2d shrinkMatrix(std::string **matrix, int size) {
     return sizes;
 }
 
-void findSimilar(std::string **matrix, std::string elem, int i, int y, int *x, int j) {
+void findSimilar(int **matrix, int elem, int i, int y, int *x, int j) {
     bool hasFoundAny = false;
     int deleter = 0;
     for (int k = 0; k < y; ++k) {
         for (int l = 0; l < *x; ++l) {
             if (matrix[k][l] == elem && (k != i || l != j)) {
                 hasFoundAny = true;
-                matrix[k][l] = "[_]";
+                matrix[k][l] = 228;
                 ++deleter;
             }
         }
     }
     if (hasFoundAny) {
-        matrix[i][j] = "[_]";
+        matrix[i][j] = 228;
         ++deleter;
     }
 
